@@ -16,8 +16,11 @@ The user can create a student, update it, add grades or teachers to them. I've b
   - Download latest version of [Python](https://www.python.org/downloads/) :point_left:
 
     1. Go to the website above, and click on download
+
     2. Choose depending on which processor is your machine (in this example we looking to the files of Python 3.8.4)
+
       ![alt text](https://github.com/amssdias/PYTHON--School/blob/version1/img/python-download-versions.png)
+      
     3. Double click and install (Add python to PATH just at the beginning of instalation)
 
 
