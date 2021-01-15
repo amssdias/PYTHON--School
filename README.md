@@ -13,12 +13,18 @@ The user can create a student, update it, add grades or teachers to them. I've b
 
 ### Installing
 
-  1. Download latest version of [Python](https://www.python.org/downloads/) :point_left:
 
-  ![alt text](https://github.com/amssdias/PYTHON--School/tree/version1/python-download.png?raw=true)
+  - Download latest version of [Python](https://www.python.org/downloads/) :point_left:
 
-  2. Install by doubleclicking it.
+    1. Go to the website above, and click on download
+
+    2. Choose depending on which processor is your machine (in this example we looking to the files of Python 3.8.4)
+
+      ![alt text](https://github.com/amssdias/PYTHON--School/blob/version1/img/python-download-version.png)
   
+    3. Double click and install (Add python to PATH just at the beginning of instalation)
+
+    
 ### Run
  
  - Download the project, open terminal window on folder with 'school.py' and type:
