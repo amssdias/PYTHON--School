@@ -13,7 +13,6 @@ The user can create a student, update it, add grades or teachers to them. I've b
 
 ### Installing
 
-
   - Download latest version of [Python](https://www.python.org/downloads/) :point_left:
 
     1. Go to the website above, and click on download
@@ -24,7 +23,7 @@ The user can create a student, update it, add grades or teachers to them. I've b
   
     3. Double click and install (Add python to PATH just at the beginning of instalation)
 
-    
+
 ### Run
  
  - Download the project, open terminal window on folder with 'school.py' and type:
