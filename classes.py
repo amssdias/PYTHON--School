@@ -34,9 +34,10 @@ class Student:
         if not isinstance(teacher, Teacher):
             raise TypeError('Tried to add a `{teacher.__class__.__name__}` to student, but you can only add `Teacher` object. ')
         if teacher in self.teachers:
-            return print('Teacher already exists')
+            return print('<<<<<  Teacher already exists  >>>>>')
         self.teachers.append(teacher)
-        print('Teacher added!')
+        teacher.students.append(self)
+        print(f'Teacher added! to {self.name}.')
 
 
 
@@ -84,11 +85,6 @@ class Teacher:
 
     def __str__(self):
         return f"Id: {self.id} - {self.name}"
-
-    def add_student(self, student):
-        if not isinstance(student, Student):
-            raise ValueError('Tried to add a `{student.__class__.__name__}` to teacher, but you can only add `Student` object. ')
-        self.students.append(student)
 
     @property
     def details(self):

@@ -3,9 +3,9 @@ from classes import Student, Working_student, Teacher
 students = []
 teachers = []
 
-no_students = 'No students in database! Add new one first. \n'
-no_teachers = 'No teachers in database! Add new one first. \n'
-value_error_message = 'Must type a number!\nGoing back to menu...'
+no_students = '|! No students in database! Add new one first. !|'
+no_teachers = '|! No teachers in database! Add new one first. !|'
+value_error_message = '|! Must type a number!\nGoing back to menu... !|'
 
 def main():
 
@@ -46,6 +46,7 @@ quit - (q)
         except KeyError:
             print('Input not available!')
 
+        print('\n------------------------------------------\n------------------------------------------\n')
         selection = input(menu).lower()
         print()
 
@@ -70,14 +71,14 @@ def create_student():
             pay = int(input("Yearly Payment: \n"))
             working_st = Working_student(name, course, job, pay)
             students.append(working_st)
-            return print(f'Student added!')
+            return print(f'\nStudent added!')
         except ValueError:
             return print(value_error_message)
 
 
     new_student = Student(name, course)
     students.append(new_student)
-    return print(f'Student added!')
+    return print(f'\nStudent added!')
 
 
 def add_grade():
@@ -87,7 +88,7 @@ def add_grade():
     if len(students) == 0:
         return print(no_students)
     for student in students:
-        print(student, '\n')
+        print(student)
 
     name = input('Name of student: \n').title()
     try:
@@ -111,10 +112,10 @@ def update_student_details():
     for student in students:
         print(student)
     try:
-        student_id = int(input('Type student ID to update: '))
+        student_id = int(input('\nType student ID to update: '))
         student_id = students[student_id - 1]
         print(student_id.details)
-        name = input('Name of student: ')
+        name = input('Name of student: ').title()
         course = input('Course: ')
         if isinstance(student_id, Working_student):
             job = input('Job: ')
@@ -123,7 +124,7 @@ def update_student_details():
             student_id.pay = pay
         student_id.name = name
         student_id.course = course
-        return print('Student Updated!')
+        return print('\nStudent Updated!')
 
     except ValueError:
         return print(value_error_message)
@@ -155,11 +156,11 @@ def search_student():
     name = input("What's the student name? \n").title()
     for student in students:
         if student.name == name:
-            print('Found student! Printing details...')
+            print('\nFound student! Printing details...')
             return print(student.details)
             
     else:
-        print('Student not found.\nGoing back to menu..')
+        print('\nStudent not found.\nGoing back to menu..')
 
 
 def add_teacher_to_student():
@@ -172,23 +173,23 @@ def add_teacher_to_student():
         return print(no_teachers)
 
     for student in students:
-        print(student, '\n')
+        print(student)
     
     try:
         student_id = int(input('\nWhich student id you want to add a teacher?\n'))
         student = students[student_id - 1]
         print()
         for teacher in teachers:
-            print(teacher, '\n\n')
-        teacher_id = int(input('Which teacher id you want to add?\n'))
+            print(teacher)
+        teacher_id = int(input('\nWhich teacher id you want to add?\n'))
         teacher = teachers[teacher_id - 1]
         student.add_teacher(teacher)
-        print(f"{teacher.name} was added to {student.name}!")
 
     except ValueError:
         return print(value_error_message)
     except IndexError:
-        return print('ID not in database.')
+        return print('\nID not in database.')
+
 
 def dummy_data():
     student_1 = Student('Student 1', 'Economics')
@@ -208,11 +209,9 @@ def dummy_data():
 
     teacher_1 = Teacher('Corey Schaufer', 'Python')
     teacher_2 = Teacher('Pretty Printed', 'Django')
-    teacher_1.add_student(student_1)
-    teacher_1.add_student(working_student_2)
-    teacher_2.add_student(working_student_2)
+    teacher_3 = Teacher('The Net Ninja', 'Javascript')
 
-    teachers.extend([teacher_1, teacher_2])
+    teachers.extend([teacher_1, teacher_2, teacher_3])
 
     print('Dummy data created sucessfully! \n')
 
