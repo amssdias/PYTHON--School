@@ -15,7 +15,7 @@ The user can create a student, update it, add grades or teachers to them. I've b
 
   1. Download latest version of [Python](https://www.python.org/downloads/) :point_left:
 
-  ![alt text](https://github.com/amssdias/PYTHON--School/tree/version1/python-download.png?raw=true)
+  ![alt text](https://github.com/amssdias/PYTHON--School/blob/version1/img/python-download.png)
 
   2. Install by doubleclicking it.
   
