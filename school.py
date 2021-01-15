@@ -3,17 +3,23 @@ from classes import Student, Working_student, Teacher
 students = []
 teachers = []
 
+no_students = 'No students in database! Add new one first. \n'
+no_teachers = 'No teachers in database! Add new one first. \n'
+value_error_message = 'Must type a number!\nGoing back to menu...'
+
 def main():
 
     menu = '''
 What would you like to do?
 
-Add student - (a)
-Add Grade to student - (ag)
+Create student - (a)
+Add Grade to a student - (ag)
+Update details of a student - (ua)
 List all students - (ls)
 List all teachers - (lt)
 Search for specific student - (s)
 Add teacher to a student - (at)
+
 Create dummy data - (d)
 quit - (q)
 
@@ -22,10 +28,11 @@ quit - (q)
     selected = {
         'a': create_student,
         'ag': add_grade,
+        'ua': update_student_details,
         'ls': list_students,
         'lt': list_teachers,
         's': search_student,
-        'at': add_student_teacher,
+        'at': add_teacher_to_student,
         'd': dummy_data
     }
 
@@ -65,7 +72,7 @@ def create_student():
             students.append(working_st)
             return print(f'Student added!')
         except ValueError:
-            return print('Must Type a number')
+            return print(value_error_message)
 
 
     new_student = Student(name, course)
@@ -73,20 +80,20 @@ def create_student():
     return print(f'Student added!')
 
 
-def display_students():
+def add_grade():
+    """
+    Function do add a grade to a student
+    """
     if len(students) == 0:
-        return print('No students \n')
+        return print(no_students)
     for student in students:
         print(student, '\n')
 
-
-def add_grade():
-    display_students()
     name = input('Name of student: \n').title()
     try:
         grade = int(input('Grade valuation: \n'))
     except ValueError:
-        print('Must type a number!\nGoing back to menu..')
+        print(value_error_message)
         return None
     
     for student in students:
@@ -98,9 +105,33 @@ def add_grade():
         print('\nStudent not found! Try again.\nGoing back to menu..')
 
 
+def update_student_details():
+    if len(students) == 0:
+        return print(no_students)
+    for student in students:
+        print(student)
+    try:
+        student_id = int(input('Type student ID to update: '))
+        student_id = students[student_id - 1]
+        print(student_id.details)
+        name = input('Name of student: ')
+        course = input('Course: ')
+        if isinstance(student_id, Working_student):
+            job = input('Job: ')
+            pay = int(input('Yearly pay: '))
+            student_id.job = job
+            student_id.pay = pay
+        student_id.name = name
+        student_id.course = course
+        return print('Student Updated!')
+
+    except ValueError:
+        return print(value_error_message)
+
+
 def list_students():
     if len(students) == 0:
-        return print('No students \n')
+        return print(no_students)
     for student in students:
         print(student.details)
         print()
@@ -108,15 +139,18 @@ def list_students():
 
 def list_teachers():
     if len(teachers) == 0:
-        return print('No teachers')
+        return print(no_teachers)
     for teacher in teachers:
         print(teacher.details)
         print()
 
 
 def search_student():
+    """
+    Function to search for a specific student
+    """
     if len(students) == 0:
-        return print('No students \n')
+        return print(no_students)
 
     name = input("What's the student name? \n").title()
     for student in students:
@@ -128,11 +162,14 @@ def search_student():
         print('Student not found.\nGoing back to menu..')
 
 
-def add_student_teacher():
+def add_teacher_to_student():
+    """
+    Function adds teacher to a student
+    """
     if len(students) == 0:
-        return print('No students in database! Add new one first')
+        return print(no_students)
     if len(teachers) == 0:
-        return print('No teachers in database! Add new one first')
+        return print(no_teachers)
 
     for student in students:
         print(student, '\n')
@@ -149,7 +186,7 @@ def add_student_teacher():
         print(f"{teacher.name} was added to {student.name}!")
 
     except ValueError:
-        return print('Must type a number! \nGoing back to menu..')
+        return print(value_error_message)
     except IndexError:
         return print('ID not in database.')
 
