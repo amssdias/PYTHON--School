@@ -1,16 +1,23 @@
 # PYTHON School
 
 This is a school project, where a user can add students to a database and add teachers to them, using OOP. I'm using a list to store the values so everytime the user quits the program, all values will be deleted.
+The user can create a student, update it, add grades or teachers to them. I've built some dummy data so we can test it more easily, just type 'd' and it will be created, the teachers and the students.
+
 
 ## Getting Started
 
 ### Prerequisites
 
-  Python - 3.8.4 or up
+  ***Python*** - 3.8.4 or up
  
+
 ### Installing
 
-  * Download latest version of [Python](https://www.python.org/downloads/)
+  1. Download latest version of [Python](https://www.python.org/downloads/) :point_left:
+
+  ![alt text](https://github.com/amssdias/PYTHON--School/tree/version1/python-download.png?raw=true)
+
+  2. Install by doubleclicking it.
   
 ### Run
  
