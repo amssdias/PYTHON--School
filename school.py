@@ -3,9 +3,9 @@ from classes import Student, Working_student, Teacher
 students = []
 teachers = []
 
-no_students = '|! No students in database! Add new one first. !|'
-no_teachers = '|! No teachers in database! Add new one first. !|'
-value_error_message = '|! Must type a number!\nGoing back to menu... !|'
+no_students = '|!< No students in database! Add new one first. >!|'
+no_teachers = '|!< No teachers in database! Add new one first. >!|'
+value_error_message = '|!< Must type a number!\nGoing back to menu... >!|'
 
 def main():
 
@@ -37,6 +37,7 @@ quit - (q)
     }
 
     selection = input(menu).lower()
+    print()
 
     while selection != 'q':
 
